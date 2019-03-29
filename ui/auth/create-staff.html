@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Create Staff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
+
+</head>
+<style type="text/css">
+    .panel-content{
+        position: relative;
+        background-color: white;
+        display: inline-block;
+        padding: 8px;
+        margin: 7px;
+        width: 46%;
+        border: 4px solid grey;
+        border-radius: 15px;
+    }
+
+    @media only screen and (max-width: 1335px){
+        .panel-content{
+            width: 96%;
+        }
+    }
+    #account{
+        width: 50%;
+        margin-left: 25%;
+        padding: 10px;
+    }
+    textarea{
+        width: 100%;
+        height: 60px;
+        padding: 1px;
+    }
+    .btn-submit{
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        line-height: 1px;
+        border:none;
+        border-radius: 8px;
+        color: white;
+        background-color: #8bc33f;
+    }
+</style>
+<body>
+
+    <div id="left-nav" class="side-nav">
+       <h2 class="center"><img src="../images/logo/admin.jpeg" alt="Admin"></h2>
+       <p class="center"> <b style="font-size: 20px;">Admin </b>
+        <br>
+         <span style="font-weight: bold; color:blue;"> <img src="../images/logo/online.png" alt="Online" height="10px;"> Online</span>
+       </p>
+        <ul>
+            <li><a class="" href="../auth/myprofile.html"> <img src="../images/logo/user.png" alt="Online" height="16px;"> My Profile</a></li>
+            <li> <a href="../pages/all_registration.html"> <img src="../images/logo/list2.png" alt="" height="16px;"> Staff members & Registers</a> </li>
+            <li> <a href="#createAccount.html" class="active"> <img src="../images/logo/signup.png" alt="" height="20px;"> Create Staff</a> </li>
+
+            <br>
+            <p class="thelable">All Users Account</p>
+            <li> <a href="../pages/admin_dashboard.html"><img src="../images/logo/list.png" alt="" height="18px;"> View All Accounts</a> </li>
+        </ul>
+         <p class="center"><a href="../index.html" class="logout"> <img src="../images/logo/logout.png" alt="" height="20px;"> Logout</a>
+            </p>
+    </div>
+
+    <div id="dash-main" class="container">
+
+        <div class="nav-header">
+             <a onclick="navCollapse()"><img src="../images/logo/menu.png" alt="Menu" height="50px;"></a>   <img src="../images/logo/logo.png" alt="Menu" class="bankaLogo">
+        </div>
+
+       <p   onclick="myAccount();" class="center" style="font-size: 30px; cursor: pointer;"> Create new staff <img src="../images/logo/down.png" alt="" height="20px;"></p> 
+        <div id="account">
+          <form action="" method="post">
+            <input type="text" name="staff_name" placeholder="Enter Staff name">
+
+            <textarea name="description" placeholder="Enter staff description "></textarea>
+
+            <button class="btn-submit" type="submit">Save Staff</button>
+          </form>
+        </div>
+
+        <div class="content">
+           
+            <div class="panel">
+            <h2 style="text-align: center;">All <b style="color: white;">Banka</b> Staffs (2)</h2>
+
+           <div class="panel-content" >
+              <h2>Staff Name : Admin </h2>
+              <p>Description : </p>
+              <label>Admin staff(Category) can have the following function: View all user accounts, view a specific user account, activate or deactivate an account, delete a specific user account, create staff and admin user accounts.</label>
+           </div>
+           <div class="panel-content" >
+               <h2>Staff Name : Cashier </h2>
+              <h3>Description : </h3>
+              <label>Cachier staff(Category) can have the following function: Debit user (client) account, credit user (client) account.</label>
+           </div>
+           </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/main.js"></script>
+</script>
+</body>
+
+</html>
