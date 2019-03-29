@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Client Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
+
+</head>
+<style type="text/css">
+
+</style>
+<body>
+
+    <div id="left-nav" class="side-nav">
+       <h2 class="center"><img src="../images/logo/user.png" alt="Client"></h2>
+       <p class="center">User <br>
+        Account: <b> 400 037004 19 </b> <br>
+         <span style="font-weight: bold; color:blue;"> <img src="../images/logo/online.png" alt="Online" height="10px;"> Online</span>
+       </p>
+        <ul>
+            <li><a class="" href="../auth/myprofile.html"> <img src="../images/logo/user.png" alt="Online" height="16px;"> My Profile</a></li>
+            <li> <a href="../auth/create-account.html"> <img src="../images/logo/add.png" alt="" height="20px;"> Create an Account</a> </li>
+            <li> <a href="#myAccounts"  onclick="myAccount();" >Select an account <img src="../images/logo/down.png" alt="" height="16px;"></a> </li>
+
+            <p id="account">
+            <a href="debit_client_dashboard.html" class="active">400 037004 19</a> <br>
+            <a href="debit_account_40003700420.html">400 037004 20</a> <br>
+            <a href="#400 037005 21">400 037005 21</a>
+            </p>
+
+            <br>
+            <p class="thelable">Transaction</p>
+            <li> <a class="active" href="">Debit Transaction</a> </li>
+            <li><a class="" href="credit_client_dashboard.html">Credit Transaction</a></li>
+        </ul>
+         <p class="center" ><a href="../index.html" class="logout"> <img src="../images/logo/logout.png" alt="" height="20px;"> Logout</a>
+            </p>
+    </div>
+
+    <div id="dash-main" class="container">
+
+        <div class="nav-header">
+             <a onclick="navCollapse()"><img src="../images/logo/menu.png" alt="Menu" height="50px;"></a> <img src="../images/logo/logo.png" alt="Menu" class="bankaLogo">
+        </div>
+
+        <div class="content">
+            <h2 style="text-align: center;">The Transactions #400 037004 19</h2>
+
+            <input type="text" name="search" placeholder="search transaction" id="searchTrans">
+
+            <table class="table table-responsive" id="transTable">
+                <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Acc.number</th>
+                    <th> Deposit Ammount</th>
+                    <th> Telephone</th>
+                    <th> Description</th>
+                    <th> Date</th>
+                    <th> Option</th>
+                <thead>
+                <tbody>
+                    <tr>
+                    <td style="font-size: 20px;">1</td>
+                    <td>Uwamungu Jonas</td>
+                    <td>400 937274 19</td>
+                    <td>50000 Frw</td>
+                    <td>+2507866363</td>
+                    <td> Saving fro...</td>
+                    <td>12-02-2019</td>
+                    <td><a href="show_transaction.html"> Show </a> <b style="font-size: 25px;">|</b> <a href="tel: #clientNumber"> Call </a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-size: 20px;">2</td>
+                    <td>Niyonkuru Enock</td>
+                    <td>401 937374 89</td>
+                    <td>10000 Frw</td>
+                    <td>+250 7866344</td>
+                    <td>Payment</td>
+                    <td>14-03-2019</td>
+                    <td><a href="show_transaction.html"> Show </a> <b style="font-size: 25px;">|</b> <a href="tel: #clientNumber"> Call </a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-size: 20px;">3</td>
+                    <td>Iribagiza Gikundiro Aline</td>
+                    <td>400 297132 00</td>
+                    <td>80000 Frw</td>
+                    <td>+250 7883058</td>
+                    <td>Thank you...</td>
+                    <td>28-03-2019</td>
+                    <td><a href="show_transaction.html"> Show </a> <b style="font-size: 25px;">|</b> <a href="tel: #clientNumber"> Call </a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-size: 20px;">4</td>
+                    <td>Ishimwe Diane</td>
+                    <td>404 227333 80</td>
+                    <td>5000000 Frw</td>
+                    <td>+250 788863488</td>
+                    <td>Payment</td>
+                    <td>23-03-2019</td>
+                    <td><a href="show_transaction.html"> Show </a> <b style="font-size: 25px;"> |</b> <a href="tel: #clientNumber"> Call </a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+
+</html>
