@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Deposit | Withdraw</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
+
+</head>
+<style type="text/css">
+/*only cachier debit and credit*/
+input[type="text"],input[type="number"],#check-accountBtn,select,textarea {
+    width: 80%;
+    display: inline-block;
+}
+textarea{
+  height: 60px;
+}
+#check-accountBtn{
+    height: 40px;
+    background-color: #9aca58;
+    border:none;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+</style>
+<body>
+
+    <div id="left-nav" class="side-nav">
+       <h2 class="center"><img src="../images/logo/cachier.png" alt="Admin"></h2>
+       <p class="center"> <b style="font-size: 20px;">Cachier </b>
+        <br>
+         <span style="font-weight: bold; color:blue;"> <img src="../images/logo/online.png" alt="Online" height="10px;"> Online</span>
+       </p>
+        <ul>
+            <li><a class="" href="../auth/myprofile.html"> <img src="../images/logo/user.png" alt="Online" height="16px;"> My Profile</a></li>
+            <li> <a href="checkAccount.html" class="active"> <img src="../images/logo/list2.png" alt="" height="16px;" > Debit/Credit Client account</a> </li>
+
+            <br>
+            <p class="thelable">All Users Account</p>
+            <li> <a  href="cachier_dashboard.html"><img src="../images/logo/list.png" alt="" height="18px;"> View All Accounts</a> </li>
+        </ul>
+         <p class="center"><a href="../index.html" class="logout"> <img src="../images/logo/logout.png" alt="" height="20px;"> Logout</a>
+            </p>
+    </div>
+
+    <div id="dash-main" class="container">
+
+        <div class="nav-header">
+            <a onclick="navCollapse()"><img src="../images/logo/menu.png" alt="Menu" height="50px;"></a> <img src="../images/logo/logo.png" alt="Menu" class="bankaLogo">
+        </div>
+
+        <div class="content">
+         <div id="login-form" style="margin-left: 10%;">
+
+            <form action="success-transaction.html" method="POST">
+            <h1> Debit / Credit User's account</h1>
+
+            <h2>Account Nummber: #<b style="color: white;"> (404 93777874 19) </b></h2>
+            <h2>Client: Muhirwa Emmanuel</h2>
+            <hr>
+            <p>Old Balance :</p>
+            <input type="number" name="oldBalance" value="1000000" readonly="true">
+
+            <p>To: Bank account number:</p>
+            <input type="number" name="accountNumber" placeholder="Enter account number...">
+
+            <p>Enter an amount :</p>
+            <input type="number" name="amount" placeholder="Enter amount for to debit / to withdraw">
+
+            <p>Debit / Credit  :</p>
+            <select name="type">
+            <option name="debit">Debit</option>
+            <option name="credit">Credit</option>
+            </select>
+            <p>Reason / Description  :</p>
+            <textarea name="description"></textarea>
+            <button id="check-accountBtn">Submit</button>
+            </form>
+         </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+
+</html>
