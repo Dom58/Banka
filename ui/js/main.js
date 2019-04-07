@@ -26,3 +26,17 @@ var flag = 0;
       }
     }
 
+// homepage navigation bar script
+ var navVisible = true;
+        function myFunction() {
+          if (navVisible == true){
+            document.getElementById("home-nav").style = "display:block; transition: .6s all; width: 100%;";
+          navVisible= false;
+          }
+          else{
+            document.getElementById("home-nav").style = "display:none; transition: .6s all; ";
+          navVisible= true;
+          }
+           // domdom58%*g git password
+        }
+
