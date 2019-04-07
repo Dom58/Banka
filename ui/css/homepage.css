@@ -1,0 +1,251 @@
+ #bankaLogo{
+    float: left;
+    position: absolute; 
+    width: 60px; 
+    height: 40px; 
+    margin-left: 20px; 
+    margin-top: 10px;
+    } 
+    
+    #backTop{
+        position: fixed;
+        right: 0;
+        height: 40px;
+        width: 40px;
+        margin-right: 70px;
+        margin-top: 500px;
+    }
+
+    .home-content{
+        width: 80%;
+        margin:10% ;
+        margin-top: 10px;
+    }
+    .home-panel{
+            background-color: #fbf7f7 ;
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            height: 600px;
+            border-radius: 10px;
+        }
+
+@media only screen and (min-width: 739px){
+        .home-navbar{  
+            width: 100%;
+            top: 0;
+        }
+    .home-collapse {
+        background-color: #3a7b3c;
+        display: none;
+    }
+    #home-nav{
+        
+        background-color: #19421a;
+        margin: 0;
+        top: 0;
+        height: 60px;
+        text-align: center;
+        border-bottom: 2px solid #dadada;
+    }
+    #home-nav>ul{
+          margin: 0;
+          padding: 0;
+    }
+    #home-nav >ul >li{
+        font-size: 22px;
+        display: inline-block;
+    }
+    #home-nav >ul >li >a{
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+    }
+    #home-nav .active{
+         background-color: #482f60;
+         border-bottom: 4px solid  #7cbb00;
+         border-top: 4px solid  #7cbb00;
+    }
+    #home-nav >ul >li >a:hover,#home-nav >ul >li >a:focus {
+        background-color: #7cbb00;
+        border-bottom: 4px solid white;
+        border-top: 4px solid white;
+        transition: .4s;
+        opacity:1;
+    }
+
+    #img-carousel {
+      position:relative;
+      height:100%;
+      width:100%;
+      margin:0 auto;
+    }
+
+    #img-carousel img {
+      height:100%;
+      width:100%;
+      position:absolute;
+      left:0;
+      -webkit-transition: opacity 1s ease-in-out;
+      -moz-transition: opacity 1s ease-in-out;
+      -o-transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease-in-out;
+    }
+
+}
+
+
+@media only screen and (max-width: 738px){
+      .home-navbar{
+          width: 100%;
+          top: 0;
+          }
+
+      .home-collapse > img{
+         margin-left: 85.333%;
+         max-width: 50px;
+      }
+      .home-collapse{
+          background-color: #19421a;
+          display: block;
+          border-bottom: 2px solid #dadada;
+      }
+
+      #home-nav{
+          display: none;
+          background-color: #3a7b3c;
+          margin: 0;
+          height: 300px;
+          text-align: center;
+          width: 100%;
+          transition: .8s all;
+          opacity:.9 ;
+          border-bottom: 3px solid white;
+          overflow-y: hidden;
+       }
+
+      #home-nav>ul{
+            margin: 0;
+            padding: 0;
+      }
+
+      #home-nav >ul >li{
+          font-size: 20px;
+          display: block;
+          padding: 10px;
+      }
+
+      #home-nav >ul >li >a{
+          color: white;
+          text-decoration: none;
+      }
+
+
+      #home-nav >ul >li >a:hover,#home-nav >ul >li >a:focus,#home-nav >ul >li >a:visited {
+          background-color: #7cbb00;
+          border-bottom: 3px solid white;
+          display: block;
+          padding: 10px;
+          margin-right: 0;
+      }
+
+      .home-panel:nth-of-type(2),.home-panel:nth-of-type(3),.home-panel:nth-of-type(4){
+          height: auto;
+          background-color: none,
+          }
+
+      .home-panel:nth-of-type(1){
+          height: 250px;
+          background-color: none,
+          }
+
+      #img-carousel {
+        position:relative;
+        height:100%;
+        width:100%;
+        margin:0 auto;
+      }
+
+      #img-carousel:nth-of-type(1) img {
+        height:100%;
+        width:100%;
+        position:absolute;
+        left:0;
+        transition: opacity 1s ease-in-out;
+      }
+      .left-panel img{
+       display: none;
+      }
+}
+
+    #img-carousel img.top:hover {
+      opacity:0;
+        }
+
+    .home-panel>h1,.img-caption>h1{
+        text-align: center;
+        }
+
+    .separator{
+        height: 5px;
+        width: 50px;
+        background-color: black;
+        margin-left: 45%;
+        }
+
+    .separatorleft{
+        height: 5px;
+        width: 80px;
+        background-color: orange;
+        margin-left: 1%;
+        }
+
+    .img-caption{
+        color: white;
+        position: relative;
+        background-color: #10101099;
+        margin-top: -200px;
+        margin-left:5%;
+        margin-right:5%;
+        padding: 5px;
+        border-radius: 8px;
+        }
+
+    /*for contact form*/
+    label {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    textarea{
+        width: 99%;
+        height: 90px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border-radius: 5px;
+        border: 2px solid #3a7b3c;
+        padding: 5px;
+        }
+
+@media only screen and (max-width: 1038px){
+    .home-panel:nth-of-type(2),.home-panel:nth-of-type(3),.home-panel:nth-of-type(4){
+        height: auto;
+        background-color: none,
+        }
+    }
+
+    .left-panel,.right-panel{
+     display: inline-block;
+    }
+
+    .left-panel img{
+       width: 100%;
+       height: 180px;
+    }
+
+    .left-panel{
+      max-width: 19%;
+    }
+
+    .right-panel{
+      width: 80%;
+    }
