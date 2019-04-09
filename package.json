@@ -1,0 +1,19 @@
+{
+  "name": "banka",
+  "version": "1.0.0",
+  "description": "Banka api integration with end points and testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dom58/Banka.git"
+  },
+  "author": "Ndahimana Dominique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dom58/Banka/issues"
+  },
+  "homepage": "https://github.com/Dom58/Banka#readme"
+}
