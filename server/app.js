@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 
 import users from './routes/users';
 import accountRoute from './routes/accountRoute';
+import transactionRoute from './routes/transactionRoute';
 
 import path from 'path';
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(users);
 app.use(accountRoute);
+app.use(transactionRoute);
 
 
 app.get('/', (req,res)=>{
