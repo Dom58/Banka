@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Deposit | Withdraw</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
+
+</head>
+<style type="text/css">
+    #info-msg{
+        border: 2px solid white;
+        border-radius: 4px;
+        background-color: #8bc33f;
+        padding: 5px;
+        margin-top: 50px;
+    }
+</style>
+<body>
+
+    <div id="left-nav" class="side-nav">
+       <h2 class="center"><img src="../assets/images/cachier.png" alt="Admin"></h2>
+       <p class="center"> <b style="font-size: 20px;">Cachier </b>
+        <br>
+         <span style="font-weight: bold; color:blue;"> <img src="../assets/images/online.png" alt="Online" height="10px;"> Online</span>
+       </p>
+        <ul>
+           <li><a class="" href="auth/myprofile.html"> <img src="../assets/images/user.png" alt="Online" height="16px;"> My Profile</a></li>
+            <li> <a href="checkAccount.html" class="active"> <img src="../assets/images/list2.png" alt="" height="16px;" > Debit/Credit Client account</a> 
+            </li>
+
+            <br>
+            <p class="thelable">All Users Account</p>
+            <li> <a  href="cachier_dashboard.html"><img src="../assets/images/list.png" alt="" height="18px;"> View All Accounts</a> </li>
+        </ul>
+         <p class="center"><a href="../index.html" class="logout"> <img src="../assets/images/logout.png" alt="" height="20px;"> Logout</a>
+            </p>
+    </div>
+
+    <div id="dash-main" class="container">
+
+        <div class="nav-header">
+            <a onclick="navCollapse()"><img src="../assets/images/menu.png" alt="Menu" height="50px;"></a> <img src="../assets/images/logo.png" alt="Menu" class="bankaLogo">
+        </div>
+
+        <div class="content">
+         <div id="login-form" style="margin-left: 10%;">
+            <div id="info-msg">
+            <h2>Transaction Successfuly !</h2>
+             
+             <p>Transfer From :  <b>404 93777874 19</b>.</p>
+             <p>Transfer to :  <b>404 90700074 82</b>.</p>
+             <p>Amount transfered : <b>5000</b>.</p>
+             <p>Your new balance : <b>1005000</b>.</p>
+             <p>Description : Withdraw money from Banka branch.</p>
+             <br>
+             <p>Branch : <b>Banka - Nyarugenge</b>.</p>
+             <p>Transfer date : <b>12 June 2019</b>.</p>
+             </div>
+         </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+
+</html>

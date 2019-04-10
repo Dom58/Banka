@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+
+</head>
+<style type="text/css">
+
+</style>
+
+<body>
+    <!-- adding form to the layout tamplate view -->
+    <div class="form-container">
+        <img class="user-image" src="../../assets/images/signin.png" alt="Lock Image sign">
+        <!-- <form class="form-content" action="dashboard.html"> -->
+            <div id="login-form">
+                
+                <label for="email">E-mail: </label>
+                <input type="email" placeholder="Enter an E-mail address" name="email" required="true" id="email">
+
+                <span id="theValidator" style="color: red;"></span>
+                <br>
+
+                <label for="password">Password: </label>
+                <input type="password" placeholder="Enter your Password" name="password" required="true" id="password">
+
+                <span id="theValidatorPswd" style="color: red;"></span>
+                <br>
+                <button class="login-btn" type="submit" onclick="login();">Sign in</button>
+
+                <p class="center"> Have you <a href="forgotpassword.html">forget a password </a>?</p>
+                <p class="center"> Click here to <a href="sign-up.html">Sign Up</a>.</p>
+
+            </div>
+        <!-- </form> -->
+    </div>
+     <script type="text/javascript">
+         const emailCheck = document.getElementById('email').value;
+         
+        function login() {
+            const adm_email1 = 'admin@gmail.com';
+            const adm_email2 = 'dom@gmail.com';
+            const cachier_email ='cachier@gmail.com';
+
+            var logger = document.getElementById('email').value;
+            var pswd = document.getElementById('password').value;
+
+           if((logger == adm_email1 || logger == adm_email2)&& pswd !="" ){
+            window.location.href = "../admin_dashboard.html";
+
+            // exit();
+           }
+
+           else if (logger == cachier_email) {
+            window.location.href = "../cachier_dashboard.html";
+           }
+
+           else if(adm_email1 && adm_email2 && pswd != "" && logger != ""  ){
+             window.location.href = "create-account.html";
+           }
+
+           else{
+            document.getElementById('theValidator').innerHTML=" Please fill an Email field!!";
+            document.getElementById('theValidatorPswd').innerHTML=" Please fill a Password field!!";
+
+             document.getElementById('email').style="border: 2px solid red;"
+             document.getElementById('password').style="border: 2px solid red;"
+           }
+        }
+    </script>
+</body>
+
+</html>

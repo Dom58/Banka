@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
+
+</head>
+<style type="text/css">
+    
+</style>
+<body>
+
+    <div id="left-nav" class="side-nav">
+       <h2 class="center"><img src="../assets/images/admin.jpeg" alt="Admin"></h2>
+       <p class="center"> <b style="font-size: 20px;">Admin </b>
+        <br>
+         <span style="font-weight: bold; color:blue;"> <img src="../assets/images/online.png" alt="Online" height="10px;"> Online</span>
+       </p>
+        <ul>
+            <li><a class="" href="auth/myprofile.html"> <img src="../assets/images/user.png" alt="Online" height="16px;"> My Profile</a></li>
+            <li> <a href="all_registration.html"> <img src="../assets/images/list2.png" alt="" height="16px;"> Staff members & Registers</a> </li>
+            <li> <a href="auth/create-staff.html"> <img src="../assets/images/signup.png" alt="" height="20px;"> Create Staff</a> </li>
+
+            <br>
+            <p class="thelable">All Users Account</p>
+            <li> <a class="active" href=""><img src="../assets/images/list.png" alt="" height="18px;"> View All Accounts</a> </li>
+        </ul>
+         <p class="center"><a href="../index.html" class="logout"> <img src="../assets/images/logout.png" alt="" height="20px;"> Logout</a>
+            </p>
+    </div>
+
+    <div id="dash-main" class="container">
+
+        <div class="nav-header">
+            <a onclick="navCollapse()"><img src="../assets/images/menu.png" alt="Menu" height="50px;"></a> <img src="../assets/images/logo.png" alt="Menu" class="bankaLogo">
+        </div>
+
+        <div class="content">
+            <h2 style="text-align: center;">All <b style="color: white;">Banka</b> Users Accounts (5)</h2>
+
+            <input type="text" name="search" placeholder="search user account..." id="searchTrans">
+
+            <table class="table table-responsive" id="transTable">
+                <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Acc Number</th>
+                    <th>Acc Type</th>
+                    <th> E-mail</th>
+                    <th> Telephone</th>
+                    <th> Created_at</th>
+                    <th>Status</th>
+                    <th> Option</th>
+                    <th></th>
+                <thead>
+                <tbody>
+                    <tr>
+                    <td style="font-size: 20px;">1</td>
+                    <td>Muhizi Bonaventure</td>
+                    <td>400 93777874 19</td>
+                    <td>Current</td>
+                    <td>muhizi@gmail.com</td>
+                    <td>+2507276363</td>
+                    <td>10/01/2016</td>
+                    <td>
+                        <button class="btn-danger" title="Click here to activate this account"> Draft </button> 
+                    </td>
+
+                    <td><a href="show_account.html"> <img src="../assets/images/eye.png" alt="Show" height="20px;"> </a>  <b style="font-size: 25px;"> | </b> <button class="btn-danger" title="Delete Account"> <img src="../assets/images/delete.png" alt="Delete" height="20px;"> </button> 
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-size: 20px;">2</td>
+                    <td>Karisa Damien</td>
+                    <td>401 996323 89</td>
+                    <td>Savings</td>
+                    <td>karisadam@yahoo.com</td>
+                    <td>+250 7866344</td>
+                    <td>14/04/2018</td>
+                    <td>
+                        <button class="btn-active" title="Account is Activated, Click here to Draft"> Active </button>
+                    </td>
+                    <td><a href="show_account.html"> <img src="../assets/images/eye.png" alt="Show" height="20px;"> </a>  <b style="font-size: 25px;"> | </b><button class="btn-danger" title="Delete Account"> <img src="../assets/images/delete.png" alt="Delete" height="20px;"> </button> 
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-size: 20px;">3</td>
+                    <td>Umuraza Immacule</td>
+                    <td>400 294532 77</td>
+                    <td>Current</td>
+                    <td>umurazaimma58@gmail.com</td>
+                    <td>+250 7881259</td>
+                    <td>01/04/2017</td>
+                    <td>
+                        <button  class="btn-danger" title="Account is Activated, Click here to Draft"> Draft </button>
+                    </td>
+                    <td><a href="show_account.html"> <img src="../assets/images/eye.png" alt="Show" height="20px;"> </a> <b style="font-size: 25px;"> | </b><button class="btn-danger" title="Delete Account"> <img src="../assets/images/delete.png" alt="Delete" height="20px;"> </button> </td>
+                    </tr>
+                    <tr>
+                    <td style="font-size: 20px;">4</td>
+                    <td>Karisa Damien</td>
+                    <td>401 900383 89</td>
+                    <td>Current</td>
+                    <td>nyiran@yahoo.com</td>
+                    <td>+250 7366445</td>
+                    <td>20/04/2019</td>
+                    <td>
+                        <button class="btn-active" title="Account is Activated, Click here to Draft"> Active </button>
+                    </td>
+                    <td><a href="show_account.html"> <img src="../assets/images/eye.png" alt="Show" height="20px;"> </a>  <b style="font-size: 25px;"> | </b> <button class="btn-danger" title="Delete Account"> <img src="../assets/images/delete.png" alt="Delete" height="20px;"> </button>  </td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-size: 20px;">5</td>
+                    <td>Eric Diedonne</td>
+                    <td>401 996920 00</td>
+                    <td>Savings</td>
+                    <td>ericdam@yahoo.com</td>
+                    <td>+250 7889304</td>
+                    <td>01/04/2019</td>
+                    <td>
+                        <button class="btn-active" title="Account is Activated, Click here to Draft"> Active </button>
+                    </td>
+                    <td><a href="show_account.html"> <img src="../assets/images/eye.png" alt="Show" height="20px;"> </a>  <b style="font-size: 25px;"> | </b><button class="btn-danger" title="Delete Account">  <img src="../assets/images/delete.png" alt="Delete" height="20px;"> </button>  </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+
+</html>

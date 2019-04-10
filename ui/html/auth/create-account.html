@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Create Account </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <!-- adding form to the layout tamplate view -->
+    <div class="form-container">
+        <img src="../../assets/images/add.png" alt="Logo Login" height="100px" style="margin-left: 40%;">
+        <form class="modal-content" action="../debit_client_dashboard.html"  method="">
+            <div id="register-form">
+                <h3 style="color: brown;">Fill an Empty Field and Submit Form. The Account number will be created automaticaly and Copy the number displayed!</h3>
+                <label for="firstName">First name :</label>
+                <input type="text" value="Muhirwa" readonly="true">
+
+                <label for="lastName">Last name :</label>
+                <input type="text" value="Emmanuel" readonly="true">
+
+                <label for="email">E-mail :</label>
+                <input type="text" value="muhi@emples.com" readonly="true">
+
+                <label for="bank_type">Account Type :</label>
+                <select name="type" required="true">
+                    <option value="">Select bank account Type...</option>
+                    <option value="savings">Savings</option>
+                    <option value="current">Current</option>
+                </select>
+
+                <p><input type="checkbox" name="accept-term"> Accept <a href="#termAndCondition">Terms & Privacy</a>.</p>
+                
+                <button class="login-btn" type="submit">Submit</button>
+            </form>
+                
+                <p class="center">Have you openned any bank account yet ?   <a href="../debit_client_dashboard.html">Click here </a> to view the transaction(s).</p>
+                    <br>
+                <p class="center "><a href="../../index.html" class="login-btn">Home </a></p>
+
+            </div>
+
+          <!-- <script src="js/main.js"></script> -->
+    </div>
+</body>
+
+</html>

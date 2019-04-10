@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka | Show Transaction - 401 996323 89</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
+
+</head>
+<style type="text/css">
+    #info-msg{
+        border: 2px solid white;
+        border-radius: 4px;
+        background-color: #8bc33f;
+        padding:10px;
+        margin-top: 50px;
+    }
+</style>
+<body>
+
+    <div id="left-nav" class="side-nav">
+       <h2 class="center"><img src="../assets/images/user.png" alt="Client"></h2>
+       <p class="center">User <br>
+        Account: <b> 400 037004 19 </b> <br>
+         <span style="font-weight: bold; color:blue;"> <img src="../assets/images/online.png" alt="Online" height="10px;"> Online</span>
+       </p>
+         <ul>
+            <li><a class="" href="auth/myprofile.html"> <img src="../assets/images/user.png" alt="Online" height="16px;"> My Profile</a></li>
+            <li> <a href="auth/create-account.html"> <img src="../assets/images/add.png" alt="" height="20px;"> Create an Account</a> </li>
+            
+            <li> <a href="#myAccounts"  onclick="myAccount();" >Select an account <img src="../assets/images/down.png" alt="" height="16px;"></a> </li>
+
+            <p id="account">
+            <a href="debit_client_dashboard.html" class="active">400 037004 19</a> <br>
+            <a href="debit_account_40003700420.html">400 037004 20</a> <br>
+            <a href="#400 037005 21">400 037005 21</a>
+            </p>
+
+            <br>
+            <p class="thelable">Transaction</p>
+            <li> <a href="debit_client_dashboard.html">Debit Transaction</a> </li>
+            <li><a href="credit_client_dashboard.html">Credit Transaction</a></li>
+        </ul>
+         <p class="center" ><a href="../index.html" class="logout"> <img src="../assets/images/logout.png" alt="" height="20px;"> Logout</a>
+            </p>
+    </div>
+
+    <div id="dash-main" class="container">
+
+        <div class="nav-header">
+            <a onclick="navCollapse()"><img src="../assets/images/menu.png" alt="Menu" height="50px;"></a> <img src="../assets/images/logo.png" alt="Menu" class="bankaLogo">
+        </div>
+
+        <div class="content">
+         <div id="login-form" style="margin-left: 10%;">
+            <div id="info-msg">
+            <h2>TRANSACTION DETAILS</h2>
+             
+             <p>From Account :  <b>400 93777874 19</b>.</p>
+             <p>Transfer to : <b>400 93707800 02</b>.</p>
+             <p>Amount : <b>15000</b>.</p>
+             <p>Description : Withdraw </p>
+             <p>Date : <b>10 /01/ 2016</b>.</p>
+             <p>Branch : <b>Banka - Nyarugenge</b>.</p>
+<br>
+             <p>Name :  <b>Muhizi Bonaventure</b>.</p>
+             <p>Email :  <b>muhizi@gmail.com</b>.</p>
+             <p>Telephone :  <b>+250 727 6363</b>.</p>
+
+             </div>
+         </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+
+</html>

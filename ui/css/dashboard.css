@@ -1,0 +1,243 @@
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: #3a7b3c;
+  }
+
+
+  h2>img{
+      height: 90px;
+      width:90px;
+  }
+  
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+  }
+
+  .center {
+      text-align: center;
+      margin: 10px 0 5px 0;
+  }
+  .thelable{
+      color: #ddd;
+      margin-left: 20px;
+  }
+
+  #account{
+     text-align: center; 
+     display: none;
+    border-bottom: 2px solid white;
+  }
+
+  #account >a{
+      display: block;
+      padding: 3px;
+      text-decoration: none;
+      color: white;
+  }
+
+  .side-nav {
+      height: 100%;
+      width: 255px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      margin: 0;
+      border-right: 2px solid white;
+      background-color: #3a7b3c;
+      overflow-x: hidden;
+      transition: 0.1s;
+      padding-top: 20px;
+  }
+
+  .side-nav li a {
+      display: block;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      font-family:"Calibri Light";
+      padding: 10px 16px;
+      color: white;
+  }
+
+  li a:hover:not(.active) {
+      background-color: white;
+      color: #1b2a3d;
+  }
+
+  .side-nav a.active {
+      background-color: #4da04f;
+      color: #f1f1f1;
+      border-bottom: 2px solid white;
+  }
+
+  .logout{
+    font-weight: bold; 
+    font-size: 20px; 
+    color: brown; 
+    text-decoration: none;
+  }
+
+  .container {
+      padding: 0;
+      width: auto;
+      margin-left: 255px;
+  }
+
+  .nav-header {
+      box-shadow: 0px 4px 5px 0 rgba(0, 0, 0, 0.9);
+      display: block;
+      overflow: hidden;
+      background-color: grey;
+  }
+
+  .nav-header a {
+      float: left;
+      display: block;
+      cursor: pointer;
+      padding: 10px 12px;
+      margin-left: 10px;
+      background-color: #3a7b3c;
+  }
+
+  .nav-header a:hover, .nav-header a:focus {
+      background-color:black;
+      color: white;
+      transition: .1s;
+      transform: skewX(-10deg);
+      border-bottom: 4px solid white;
+  }
+
+  .bankaLogo{
+    height : 70px;
+    margin-left: 30%; 
+    margin-top: 5px;
+  }
+
+  label.content{
+      font-weight: normal;
+  }
+
+  .content {
+      /*display: block;*/
+      max-width: 100%;
+      overflow-x: hidden;
+      padding: 0px 15px 15px 15px;
+  }
+  input[type="text"],input[type="number"],select{
+          width: 100%;
+          height: 50px;
+          margin: 5px 0 12px 0;
+          display: inline-block;
+          box-sizing: border-box;
+          border-radius: 10px;
+          border: 2px solid #3a7b3c;
+          padding: 15px;
+          }
+
+  input:focus{
+          border: 2px solid #a3f3a6;
+          }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+     background-color: white;
+  }
+
+  td,th {
+    padding: 0;
+  }
+  th {
+    text-align: left;
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0px;
+  }
+  .table > thead > tr > th{
+     border-bottom: 2px solid #ddd 
+  }
+  .table > thead > tr > th,
+  .table > tbody > tr > th,
+  .table > tbody > tr > td {
+    padding: 4px;
+    line-height: 2;
+    /*vertical-align: top;*/
+    border-bottom: 2px solid #ddd;
+  }
+  .table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+  }
+
+  table tr:hover {
+      background-color: #ddd;
+  }
+
+  table a {
+      background-color: #3a6f3c;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 10px;
+  }
+  table a:hover,table a:focus {
+      background-color: #4da04f;
+      color: white;
+  }
+  @media screen and (max-width: 780px) {
+    .table-responsive {
+      width: 100%;
+      margin-bottom: 15px;
+      overflow-y: hidden;
+      /*-ms-overflow-style: -ms-autohiding-scrollbar;*/
+      border: 1px solid #ddd;
+    }
+    tr, th{
+
+      display: block;
+      text-align: center;
+      border-bottom: 2px solid #dadada;
+      background-color: #808080;
+      color: white;
+    }
+
+    td{
+      display: block;
+      border-bottom: 1px solid #dadada;
+      background-color: white;
+      color: black;
+    }
+    .container {
+          margin-left: 0px;
+      }
+
+    .side-nav{
+      width: 0px;
+    }
+
+  }
+
+  /*css for only the Admin dashboard*/
+  .btn-danger, .btn-active{
+     border:none;
+     padding: 8px;
+     color: white;
+     border-radius: 5px;
+  }
+  .btn-active{
+     background-color: #3a7b3c;
+  }
+  .btn-danger{
+     background-color: #d23333;
+  }
+
+  /*End css for only the Admin dashboard*/
+
