@@ -24,9 +24,9 @@ const userController = {
             password: bcrypt.hashSync(req.body.password,10)
         };
         
-        //token assigning and data pushing
+        //token assigning the secret value and data pushing
         const thesecret_code = 'BANKA_JWT_SECRET_CODE';
-        const token = jwt.sign(user, `${thesecret_code}`, { expiresIn: '24h' });
+        const token = jwt.sign(user, `${req.body.password}`, { expiresIn: '24h' });
         dbs.users.push(user);
 
         return res.header('Authorization', token).status(200).json({
@@ -39,8 +39,7 @@ const userController = {
         });
       },
 
-      signIn(req, res) {
-
+    signIn(req, res) {
     const { error } = validate.validateLogin(req.body);
     if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
 
@@ -61,7 +60,7 @@ const userController = {
     
     // Generate new token
     const thesecret_code = 'BANKA_JWT_SECRET_CODE';
-    const token = jwt.sign(userDetails, `${thesecret_code}`, { expiresIn: '24h' });
+    const token = jwt.sign(userDetails, `${req.body.password}`, { expiresIn: '24h' });
 
     return res.header('Authorization', token).status(200).json({
       status: 200,
