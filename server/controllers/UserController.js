@@ -26,7 +26,8 @@ const userController = {
         
         //token assigning the secret value and data pushing
         const thesecret_code = 'BANKA_JWT_SECRET_CODE';
-        const token = jwt.sign(user, `${req.body.password}`, { expiresIn: '24h' });
+        // ${req.body.password}
+        const token = jwt.sign(user, `${thesecret_code}`, { expiresIn: '24h' });
         dbs.users.push(user);
 
         return res.header('Authorization', token).status(200).json({
@@ -60,7 +61,7 @@ const userController = {
     
     // Generate new token
     const thesecret_code = 'BANKA_JWT_SECRET_CODE';
-    const token = jwt.sign(userDetails, `${req.body.password}`, { expiresIn: '24h' });
+    const token = jwt.sign(userDetails, `${thesecret_code}`, { expiresIn: '24h' });
 
     return res.header('Authorization', token).status(200).json({
       status: 200,
