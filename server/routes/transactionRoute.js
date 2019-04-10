@@ -9,6 +9,6 @@ const route = express.Router();
 //Banka Transaction APIs
 route.get('/api/v1/transactions', transactionController.allTransactions);
 route.post('/api/v1/transactions/:accountNumber/credit', transactionController. makeCreditTransaction);
-// route.post('/api/v1/transactions/:accountNumber/debit', transactionController. makeDebitTransaction);
+route.post('/api/v1/transactions/:accountNumber/debit', transactionController. makeDebitTransaction);
 
 export default route;
