@@ -13,3 +13,10 @@ exports.validateUser = (user) => {
   return joi.validate(user, schema);
 };
 
+exports.validateLogin = (user) => {
+  const login = {
+    email: joi.string().email().required(),
+    password: joi.string().min(6).required(),
+  };
+  return joi.validate(user, login);
+};
