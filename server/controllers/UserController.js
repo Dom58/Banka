@@ -38,6 +38,40 @@ const userController = {
           },
         });
       },
+
+      signIn(req, res) {
+
+    const { error } = validate.validateLogin(req.body);
+    if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
+
+    // Check email
+    const user = dbs.users.find(username => username.email === req.body.email);
+    if (!user) return res.status(400).json({ status: 400, error: 'Invalid email' });
+
+    // password match
+    const comparePassword = bcrypt.compareSync(req.body.password, user.password);
+    if (!comparePassword) return res.status(400).json({ status: 400, error: 'Incorrect password' });
+
+    const userDetails = {
+        id:user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+    };
+    
+    // Generate new token
+    const thesecret_code = 'BANKA_JWT_SECRET_CODE';
+    const token = jwt.sign(userDetails, `${thesecret_code}`, { expiresIn: '24h' });
+
+    return res.header('Authorization', token).status(200).json({
+      status: 200,
+      message: 'You are logging in, Enjoy Banka services',
+      data: {
+        token,
+        data: userDetails,
+      },
+    });
+      },
 }
 
 export default userController;

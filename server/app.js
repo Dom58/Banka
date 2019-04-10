@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import users from './routes/users';
+// import accountRouter from './routes/accountRouter';
 
 import path from 'path';
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(users);
+// app.use(accountRouter);
 
 
 app.get('/', (req,res)=>{
