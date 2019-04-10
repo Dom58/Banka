@@ -14,9 +14,10 @@ const accountController = {
         function randomInt() {
             return Math.floor(Math.random() * (9999999999 - 1000000000) + 1000000000);
           }
-          var balance = 0;
-        //   const randomNmber = Math.floor(Math.random() * 10;
 
+        //   const randomNmber = Math.floor(Math.random() * 10;
+        const balance = 0;
+        
         const { error } = validate.validateAccount(req.body);
         if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
         
