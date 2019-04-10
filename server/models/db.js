@@ -1,7 +1,8 @@
 var db = {
 	users: [],
-	transactions: [],
 	accounts : [],
+	transactions: [],
+	
 }
 
 export default db;

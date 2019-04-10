@@ -24,8 +24,9 @@ const userController = {
             password: bcrypt.hashSync(req.body.password,10)
         };
         
-        //token assigning and data pushing
+        //token assigning the secret value and data pushing
         const thesecret_code = 'BANKA_JWT_SECRET_CODE';
+        // ${req.body.password}
         const token = jwt.sign(user, `${thesecret_code}`, { expiresIn: '24h' });
         dbs.users.push(user);
 
@@ -39,8 +40,7 @@ const userController = {
         });
       },
 
-      signIn(req, res) {
-
+    signIn(req, res) {
     const { error } = validate.validateLogin(req.body);
     if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
 
