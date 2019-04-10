@@ -10,7 +10,6 @@ const route = express.Router();
 route.get('/api/v1/accounts', accountController.allAccounts);
 route.post('/api/v1/accounts', accountController.createAccount);
 route.delete('/api/v1/accounts/:accountNumber', accountController.deleteAccount);
-
-// route.patch('/api/v1/accounts/:accountNumber', accountController.activateAccount);
+route.patch('/api/v1/accounts/:accountNumber', accountController.activateAccount);
 
 export default route;
