@@ -31,10 +31,19 @@ const accountController = {
             balance:parseFloat(balance)
         };
         dbs.accounts.push(account);
-        res.status(200).send(account);
+        res.status(200).json({ status: 200, message: `Bank account created with this ## ${account.accountNumber} ## account number, Enjoy our services` , data: account });
         }
     },
+    // activate or draft a user bank account
+    activateAccount(req, res){
+        const account = dbs.accounts.find(findAccount => findAccount.accountNumber === parseInt(req.params.accountNumber));
+         if (!account) return res.status(404).json({status:404, error:`This account number ## ${req.params.accountNumber} ## was not found !`});         
+        
+         account.status = req.body.status;
+            return res.status(200).json({ status: 200, message: 'Account Updated', data: account });
+        },
 
+    //delete an account
     deleteAccount(req, res){
         const account = dbs.accounts.find(findAccount => findAccount.accountNumber === parseInt(req.params.accountNumber));
          if (!account) return res.status(404).json({status:404, error:`This account number ## ${req.params.accountNumber} ## was not found !`});
@@ -45,8 +54,6 @@ const accountController = {
         dbs.accounts.splice(index, 1);
         res.status(200).json({ status:200, Message: "Account successfully deleted" });
         },
-
-
 }
 
 export default accountController;
