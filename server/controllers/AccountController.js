@@ -35,7 +35,16 @@ const accountController = {
         }
     },
 
+    deleteAccount(req, res){
+        const account = dbs.accounts.find(findAccount => findAccount.accountNumber === parseInt(req.params.accountNumber));
+         if (!account) return res.status(404).json({status:404, error:`This account number ## ${req.params.accountNumber} ## was not found !`});
     
+         //find index of account
+        const index = dbs.accounts.indexOf(account);
+        //remove account
+        dbs.accounts.splice(index, 1);
+        res.status(200).json({ status:200, Message: "Account successfully deleted" });
+        },
 
 
 }
