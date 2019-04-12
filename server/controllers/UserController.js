@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import validate from '../helpers/helper';
 import dbs from '../models/db';
 
+const thesecret_code = 'BANKA_JWT_SECRET_CODE';
 
 const userController = {
     signUp(req, res) {
@@ -24,9 +25,6 @@ const userController = {
             password: bcrypt.hashSync(req.body.password,10)
         };
         
-        //token assigning the secret value and data pushing
-        const thesecret_code = 'BANKA_JWT_SECRET_CODE';
-        // ${req.body.password}
         const token = jwt.sign(user, `${thesecret_code}`, { expiresIn: '24h' });
         dbs.users.push(user);
 
@@ -58,9 +56,7 @@ const userController = {
         lastName: user.lastName,
         email: user.email,
     };
-    
     // Generate new token
-    const thesecret_code = 'BANKA_JWT_SECRET_CODE';
     const token = jwt.sign(userDetails, `${thesecret_code}`, { expiresIn: '24h' });
 
     return res.header('Authorization', token).status(200).json({
