@@ -1,11 +1,14 @@
 import jwt from 'jsonwebtoken';
 
+const thesecret_code = 'BANKA_JWT_SECRET_CODE';
+
 const authenticated = (req, res, next) => {
   try {
     const header = req.headers.authorization;
     if (!header || header === '') return res.status(403).json({ status: 403, error: 'FORBIDDEN' });
+    
 
-    const token = jwt.verify(header, `${req.body.password}`);
+    const token = jwt.verify(header, `${thesecret_code}`);
     req.user = token;
     next();
   } catch {

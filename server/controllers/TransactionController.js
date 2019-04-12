@@ -52,10 +52,10 @@ const transactionController = {
         if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
 
         let foundAcc = dbs.accounts.find( found => found.accountNumber === parseInt(req.params.accountNumber));
-        if(!foundAcc) return res.status(404).json({ status:404, error: `Bank account number ## ${req.params.accountNumber} ## not found !` });
+        if(!foundAcc) return res.status(400).json({ status:400, error: `Bank account number ## ${req.params.accountNumber} ## not found !` });
 
         else if (foundAcc.balance < parseFloat(req.body.amount)) {
-            res.status(404).json({error:404, message: `Insufficient amount ## ${foundAcc.balance} ##!? Please recharge your balance !!`});
+            res.status(400).json({error:400, message: `Insufficient amount ## ${foundAcc.balance} ##!? Please recharge your balance !!`});
           }
 
         else{
