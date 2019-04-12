@@ -20,11 +20,9 @@ app.use(users);
 app.use(accountRoute);
 app.use(transactionRoute);
 
-
-app.get('/', (req,res)=>{
-	res.send('<h2>Welcome to Banka application ...</h2>');
-});
-
+// app.get('/', (req,res)=>{
+// 	res.send('<h2>Welcome to Banka application ...</h2>');
+// });
 
 app.listen(port, ()=>{
 	console.log(`Server is running on (http://127.0.0.1:${port}) `);
