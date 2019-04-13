@@ -15,31 +15,30 @@ describe('signup', () => {
           lastName: 'Dominique',
           email: 'dominique58@gmail.com',
           phoneNumber: '0788863488',
-          status: 'Cashier',
+          status: 'cashier',
           isAdmin: 'false',
           password: 'domdom',
         })
         .end((err, res) => {
           expect(res.body.status).to.equal(200);
-          // expect(res.body).to.have.property('status');
-          // expect(res.body).to.have.property('message');
-          // expect(res.body).to.have.property('data');
-          // expect(res.body).to.be.an('object');
         });
         
     });
     
 
-    it('If email already taken', () => {
+    it('Email already registed', () => {
         chai.request(server)
           .post('/api/v1/auth/signup')
           .set('Content-type', 'application/json')
           .set('Accept', 'application/json')
           .send({
-            firstName: 'andrew',
-            lastName: 'jackson',
+            firstName: 'Ndahimana',
+            lastName: 'Dominique',
             email: 'dom58@gmail.com',
-            password: 'asdfgh',
+            phoneNumber: '0788863488',
+            status: 'cashier',
+            isAdmin: 'false',
+            password: 'domdom',
           })
           .end((err, res) => {
             expect(res.body.status).to.equal(400);
