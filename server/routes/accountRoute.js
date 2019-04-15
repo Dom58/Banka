@@ -5,8 +5,6 @@ import authMiddleware from '../middleware/authMiddleware';
 const path = require('path');
 const route = express.Router();
 
-
-
 //Banka Account APIs
 route.get('/api/v1/accounts',authMiddleware, accountController.allAccounts);
 route.post('/api/v1/accounts',authMiddleware, accountController.createAccount);

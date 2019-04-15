@@ -10,7 +10,6 @@ describe('Welcome Message', () => {
         chai.request(server)
       .get('/')
       .end((err, res) => {
-        // console.log(res.body);
         expect(res.body.status).to.equal(200);
       });
       });

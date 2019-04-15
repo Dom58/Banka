@@ -30,10 +30,3 @@ before('signIn', () => {
       expect(res.body).to.have.property('status');
     });
 });
-
-describe('makeCreditTransaction', () => {
-    
-      //make a test to how a cashier can credit a client bank account
-
-     
-});

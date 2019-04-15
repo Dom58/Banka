@@ -5,7 +5,6 @@ import authMiddleware from '../middleware/authMiddleware';
 const path = require('path');
 const route = express.Router();
 
-
 //Banka Transaction APIs
 route.get('/api/v1/transactions',authMiddleware, transactionController.allTransactions);
 route.post('/api/v1/transactions/:accountNumber/credit',authMiddleware, transactionController. makeCreditTransaction);
