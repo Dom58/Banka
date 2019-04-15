@@ -8,7 +8,6 @@ import transactionRoute from './routes/transactionRoute';
 import path from 'path';
 
 var app = express();
-// const port = 3000;
 const port = process.env.PORT || 3000;
 
 
@@ -20,9 +19,9 @@ app.use(users);
 app.use(accountRoute);
 app.use(transactionRoute);
 
-// app.get('/', (req,res)=>{
-// 	res.send('<h2>Welcome to Banka application ...</h2>');
-// });
+app.get('/', (req,res)=>{
+	res.send({ status:200, message:'Welcome to Banka application' });
+});
 
 app.listen(port, ()=>{
 	console.log(`Server is running on (http://127.0.0.1:${port}) `);

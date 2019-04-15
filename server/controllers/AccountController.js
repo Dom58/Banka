@@ -12,12 +12,10 @@ const accountController = {
     },
 
     createAccount(req, res) {
-        // const token = jwt.sign(req.user, `${thesecret_code}`);
 
         function randomInt() {
             return Math.floor(Math.random() * (9999999999 - 1000000000) + 1000000000);
           }
-        //   const randomNmber = Math.floor(Math.random() * 10;
         const balance = 0;
         const { error } = validate.validateAccount(req.body);
         if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
@@ -42,7 +40,7 @@ const accountController = {
     // activate or draft a user bank account
     activateAccount(req, res){
         const account = dbs.accounts.find(findAccount => findAccount.accountNumber === parseInt(req.params.accountNumber));
-         if (!account) return res.status(400).json({status:400, error:`This account number ## ${req.params.accountNumber} ## was not found !`});         
+         if (!account) return res.status(404).json({status:404, error:`This account number ## ${req.params.accountNumber} ## was not found !`});         
         
          account.status = req.body.status;
             return res.status(200).json({ status: 200, message: 'Account Updated', data: account });
@@ -51,7 +49,7 @@ const accountController = {
     //delete an account
     deleteAccount(req, res){
         const account = dbs.accounts.find(findAccount => findAccount.accountNumber === parseInt(req.params.accountNumber));
-         if (!account) return res.status(400).json({status:400, error:`This account number ## ${req.params.accountNumber} ## was not found !`});
+         if (!account) return res.status(404).json({status:404, error:`This account number ## ${req.params.accountNumber} ## was not found !`});
     
          //find index of account
         const index = dbs.accounts.indexOf(account);
