@@ -102,13 +102,24 @@
       padding: 10px 12px;
       margin-left: 10px;
       background-color: #3a7b3c;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      margin-bottom: 2px;
+  }
+  .nav-header a:hover {
+      border-right: 3px solid black;
+      transition: .6s;
   }
 
+
   .bankaLogo{
-    height : 70px;
+    height : 40px;
     margin-left: 30%; 
-    margin-top: 5px;
+    position: absolute;
+    margin-top: -35px;
   }
+
 
   label.content{
       font-weight: normal;
@@ -185,13 +196,20 @@
       color: white;
   }
   @media screen and (max-width: 780px) {
+
+    .bankaLogo{
+        display: none;
+      }
+      
     .table-responsive {
       width: 100%;
       margin-bottom: 15px;
       overflow-y: hidden;
       /*-ms-overflow-style: -ms-autohiding-scrollbar;*/
       border: 1px solid #ddd;
+
     }
+
     tr, th{
 
       display: block;
