@@ -62,7 +62,7 @@
         padding: 15px;
     }
     #home-nav .active{
-         background-color: #482f60;
+         background-color: black;
          border-bottom: 4px solid  #7cbb00;
          border-top: 4px solid  #7cbb00;
     }
@@ -248,4 +248,10 @@
 
     .right-panel{
       width: 80%;
+    }
+
+    .footer{
+      padding: 10px;
+      color: black;
+      text-align: center;
     }

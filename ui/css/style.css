@@ -63,10 +63,14 @@
         padding: 20px;
         line-height: 1px;
         margin-top:20px;
-        /*margin-left: 20%;*/
         border: none; 
-        /*border-radius: 10px;*/
         background-color: #3a7b3c;
+    }
+    .login-btn:hover{
+        background-color: #06506b;
+        transform: scale(1.03);
+        transition: .8s;
+        border-radius: 5px;
     }
 
      .btn-edit, .btn-create {

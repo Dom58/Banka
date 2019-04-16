@@ -4,18 +4,43 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Banka | My Profile</title>
+    <title>Banka | Forgot Password</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/homepage.css" />
 
-    <style type="text/css">
-       
-    </style>
 </head>
+<style type="text/css">
+   
+</style>
 
 <body>
-    <!-- adding form to the layout tamplate view -->
+    <nav class="home-navbar" id="top">
+    <img src="../../assets/images/logo.png" id="bankaLogo">
+    <div class="home-collapse">
+    <img src="../../assets/images/menu.png" onclick="myFunction();">
+    </div>
+    <div id="home-nav" class="header-nav">
+        <ul>
+            <br>
+            <li><a class="" href="../../../index.html"> Home </a></li>
+            <li><a class="" href="../../../index.html#about-us"> About Us </a></li>
+             <li><a class="" href="../../../index.html#services"> Services </a></li>
+            <li><a class="" href="../../../index.html#contact-us"> Contact Us </a></li>
+            <li><a  class="" href="login.html"> Login </a></li>
+            <li><a class=""  href="sign-up.html"> Signup </a></li>
+            
+        </ul>
+    </div>
+</nav>
+<a href="#top">
+<img src="../../assets/images/top.png" id="backTop">
+</a>
+    <div class="home-content">
+      <!-- adding form to the layout tamplate view -->
+      <h1 style="text-align: center; color: white;">My Profile</h1>
+
+
     <div class="form-container">
         <img src="../../assets/images/user.png" alt="Logo User" height="80px"><br>
         <p> <a href="edit-profile.html" class="btn-edit">Edit Profile</a> <!-- <br>  -->
@@ -42,9 +67,15 @@
                  <p >Address :</p>
                  <h4>............</h4>
             </div>
-            <br>
-           <p class="center "><a href="../../../index.html" class="login-btn">Home </a></p>
     </div>
+
+
+<div class="footer">
+    <p>Banka © 2019 All Right Reserved <a href="#"> Terms of Use and Privacy Policy </a></p>
+</div>
+
+  <script type="text/javascript" src="../../js/main.js"></script>
+ 
 </body>
 
 </html>

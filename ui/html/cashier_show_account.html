@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Banka | Deposit | Withdraw</title>
+    <title>Banka | Show Account - 401 996323 89</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" media="screen" href="../css/dashboard.css" />
@@ -15,9 +15,10 @@
         border: 2px solid white;
         border-radius: 4px;
         background-color: #8bc33f;
-        padding: 5px;
+        padding:10px;
         margin-top: 50px;
     }
+
 </style>
 <body>
 
@@ -27,21 +28,22 @@
         <br>
          <span style="font-weight: bold; color:blue;"> <img src="../assets/images/online.png" alt="Online" height="10px;"> Online</span>
        </p>
-        <ul>             
-           <li> <a href="checkAccount.html"> <img src="../assets/images/list2.png" alt="" height="16px;"> Debit Client account</a> </li>
+        <ul>
+            <li> <a href="checkAccount.html"> <img src="../assets/images/list2.png" alt="" height="16px;"> Debit Client account</a> </li>
 
             <li> <a href="checkAccount.html"> <img src="../assets/images/list2.png" alt="" height="16px;"> Credit Client account</a> </li>
 
             <br>
             <p class="thelable">All Users Account</p>
-            <li> <a  href="cachier_dashboard.html"><img src="../assets/images/list.png" alt="" height="18px;"> View All Accounts</a> </li>
+            <li> <a class="active" href=""><img src="../assets/images/list.png" alt="" height="18px;"> View All Accounts</a> </li>
         </ul>
     </div>
 
     <div id="dash-main" class="container">
 
         <div class="nav-header">
-            <a onclick="navCollapse()"><img src="../assets/images/menu.png" alt="Menu" height="50px;"></a>
+            <a onclick="navCollapse()"><img src="../assets/images/menu.png" alt="Menu" height="50px;"></a> 
+
             <ul style=" margin-top: 10px;">
                 <li><a href="auth/myprofile.html" > My Profile </a></li>
                 <li><a href="../../index.html" > Logout </a></li>
@@ -53,16 +55,26 @@
         <div class="content">
          <div id="login-form">
             <div id="info-msg">
-            <h2>Transaction Successfuly !</h2>
+            <h2>ACCOUNT DETAILS</h2>
              
-             <p>Transfer From :  <b>404 93777874 19</b>.</p>
-             <p>Transfer to :  <b>404 90700074 82</b>.</p>
-             <p>Amount transfered : <b>5000</b>.</p>
-             <p>Your new balance : <b>1005000</b>.</p>
-             <p>Description : Withdraw money from Banka branch.</p>
+             <p>Account Number :  <b>400 93777874 19</b>.</p>
+             <p>Account Type : <b>Current</b>.</p>
+             <p>Balance : <b>1005000</b>.</p>
+             <p>Created At : <b>10 /01/ 2016</b>.</p>
+             <p>Status :  <b style="color: white;"> Active</b>.</p>
+
              <br>
-             <p>Branch : <b>Banka - Nyarugenge</b>.</p>
-             <p>Transfer date : <b>12 June 2019</b>.</p>
+
+             <h2>OWNER DETAILS</h2>
+             <p>Name :  <b>Muhizi Bonaventure</b>.</p>
+             <p>Email :  <b>muhizi@gmail.com</b>.</p>
+             <p>Telephone :  <b>+250 727 6363</b>.</p>
+             <p>Gender :  <b> - </b>.</p>
+             <p>Address :  <b> - </b>.</p>
+             <p>Owner Type :  <b> Client </b>.</p>
+             
+
+              <button class="btn-danger" title="Account is Activated, Click here to Draft"> DRAFT ACCOUNT </button>   <button class="btn-danger"> DELETE ACCOUNT</button> 
              </div>
          </div>
         </div>

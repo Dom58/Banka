@@ -48,7 +48,7 @@
       left: 0;
       margin: 0;
       border-right: 2px solid white;
-      background-color: #3a7b3c;
+      background-color: #7b8c7c;
       overflow-x: hidden;
       transition: 0.1s;
       padding-top: 20px;
@@ -92,7 +92,7 @@
       box-shadow: 0px 4px 5px 0 rgba(0, 0, 0, 0.9);
       display: block;
       overflow: hidden;
-      background-color: grey;
+      background-color: #7b8c7c;
   }
 
   .nav-header a {
@@ -102,21 +102,24 @@
       padding: 10px 12px;
       margin-left: 10px;
       background-color: #3a7b3c;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      margin-bottom: 2px;
+  }
+  .nav-header a:hover {
+      border-right: 3px solid black;
+      transition: .6s;
   }
 
-  .nav-header a:hover, .nav-header a:focus {
-      background-color:black;
-      color: white;
-      transition: .1s;
-      transform: skewX(-10deg);
-      border-bottom: 4px solid white;
-  }
 
   .bankaLogo{
-    height : 70px;
+    height : 40px;
     margin-left: 30%; 
-    margin-top: 5px;
+    position: absolute;
+    margin-top: -35px;
   }
+
 
   label.content{
       font-weight: normal;
@@ -193,13 +196,20 @@
       color: white;
   }
   @media screen and (max-width: 780px) {
+
+    .bankaLogo{
+        display: none;
+      }
+      
     .table-responsive {
       width: 100%;
       margin-bottom: 15px;
       overflow-y: hidden;
       /*-ms-overflow-style: -ms-autohiding-scrollbar;*/
       border: 1px solid #ddd;
+
     }
+
     tr, th{
 
       display: block;

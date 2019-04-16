@@ -47,6 +47,23 @@
         color: white;
         background-color: #8bc33f;
     }
+
+    .btn-dropdown{
+        width: 80%;
+        height: 50px;
+        font-size: 20px;
+        line-height: 1px;
+        border:none;
+        border-radius: 8px;
+        color: white;
+        background-color: #3aaa35;
+    }
+
+    .btn-dropdown:hover{
+        background-color: #2b85c2;
+        transition: .5s;
+        transform: scale(1.06);
+    }
 </style>
 <body>
 
@@ -57,25 +74,32 @@
          <span style="font-weight: bold; color:blue;"> <img src="../../assets/images/online.png" alt="Online" height="10px;"> Online</span>
        </p>
         <ul>
-            <li><a class="" href="../auth/myprofile.html"> <img src="../../assets/images/user.png" alt="Online" height="16px;"> My Profile</a></li>
-            <li> <a href="../all_registration.html"> <img src="../../assets/images/list2.png" alt="" height="16px;"> Staff members & Registers</a> </li>
-            <li> <a href="#createAccount.html" class="active"> <img src="../../assets/images/signup.png" alt="" height="20px;"> Create Staff</a> </li>
+            <li> <a href="../staff-members.html"> <img src="../../assets/images/list2.png" alt="" height="16px;"> Staff members </a> </li>
+
+            <li> <a href="../all_registration.html"> <img src="../../assets/images/user.png" alt="" height="16px;"> All SignUp Users</a> </li>
+
+            <li> <a href="#createAccount.html" class="active"> <img src="../../assets/images/signup.png" alt="" height="20px;"> All Staffs</a> </li>
 
             <br>
             <p class="thelable">All Users Account</p>
             <li> <a href="../admin_dashboard.html"><img src="../../assets/images/list.png" alt="" height="18px;"> View All Accounts</a> </li>
         </ul>
-         <p class="center"><a href="../../../index.html" class="logout"> <img src="../../assets/images/logout.png" alt="" height="20px;"> Logout</a>
-            </p>
     </div>
 
     <div id="dash-main" class="container">
 
         <div class="nav-header">
-             <a onclick="navCollapse()"><img src="../../assets/images/menu.png" alt="Menu" height="50px;"></a>   <img src="../../assets/images/logo.png" alt="Menu" class="bankaLogo">
+             <a onclick="navCollapse()"><img src="../../assets/images/menu.png" alt="Menu" height="50px;"></a>
+
+             <ul style=" margin-top: 10px;">
+                <li><a href="myprofile.html" > My Profile </a></li>
+                <li> <a href="../../../index.html" > Logout </a></li>
+            </ul>
+
+            <img src="../../assets/images/logo.png" alt="Menu" class="bankaLogo">
         </div>
 
-       <p   onclick="myAccount();" class="center" style="font-size: 30px; cursor: pointer;"> Create new staff <img src="../../assets/images/down.png" alt="" height="20px;"></p> 
+       <p  class="center" style="font-size: 30px;"><button  onclick="myAccount();" class="btn-dropdown"> Create new staff <img src="../../assets/images/down.png" alt="" height="20px;"> </button></p> 
         <div id="account">
           <form action="" method="post">
             <input type="text" name="staff_name" placeholder="Enter Staff name">
