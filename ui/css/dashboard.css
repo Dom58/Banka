@@ -104,14 +104,6 @@
       background-color: #3a7b3c;
   }
 
-  .nav-header a:hover, .nav-header a:focus {
-      background-color:black;
-      color: white;
-      transition: .1s;
-      transform: skewX(-10deg);
-      border-bottom: 4px solid white;
-  }
-
   .bankaLogo{
     height : 70px;
     margin-left: 30%; 
