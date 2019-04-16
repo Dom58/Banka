@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Banka | Message| Login </title>
+    <title>Banka | Success Reset Password</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/homepage.css" />
 
-    <style type="text/css">
+</head>
+<style type="text/css">
     .btn-success{
         width: 90%;
         text-align: center;
@@ -26,28 +28,55 @@
         padding: 5px;
     }
     </style>
-</head>
 
 <body>
-    <!-- adding form to the layout tamplate view -->
-    <div class="form-container">
-        <h1>Passwod Reset Successfuly</h1>
-            <form class="modal-content" action="success-reset.html">
-             <p class="center" id="info-msg">We have E-mailed your password reset link! Please check " name@examples.com " to reset password.</p>
-
-                <label for="email">E-mail :</label>
-                <input type="email" placeholder="Enter your E-mail address" name="email" required="true">
-
-                
-                
-                <button class="login-btn" type="submit">Reset Password</button>
-
-            </div>
-        </form>
-            </div>
-
-          <!-- <script src="js/main.js"></script> -->
+    <nav class="home-navbar" id="top">
+    <img src="../../assets/images/logo.png" id="bankaLogo">
+    <div class="home-collapse">
+    <img src="../../assets/images/menu.png" onclick="myFunction();">
     </div>
+    <div id="home-nav" class="header-nav">
+        <ul>
+            <br>
+            <li><a class="" href="../../../index.html"> Home </a></li>
+            <li><a class="" href="../../../index.html#about-us"> About Us </a></li>
+             <li><a class="" href="../../../index.html#services"> Services </a></li>
+            <li><a class="" href="../../../index.html#contact-us"> Contact Us </a></li>
+            <li><a  class="" href="login.html"> Login </a></li>
+            <li><a class=""  href="sign-up.html"> Signup </a></li>
+            
+        </ul>
+    </div>
+</nav>
+<a href="#top">
+<img src="../../assets/images/top.png" id="backTop">
+</a>
+    <div class="home-content">
+      <!-- adding form to the layout tamplate view -->
+      <h1 style="text-align: center; color: white;">Success Reset</h1>
+
+
+    <div class="form-container">
+       <h1>Passwod Reset Successfuly</h1>
+        <form class="modal-content" action="success-reset.html">
+         <p class="center" id="info-msg">We have E-mailed your password reset link! Please check " name@examples.com " to reset password.</p>
+
+            <label for="email">E-mail :</label>
+            <input type="email" placeholder="Enter your E-mail address" name="email" required="true">
+
+            
+            
+            <button class="login-btn" type="submit">Reset Password</button>
+        </form>
+    </div>
+
+
+<div class="footer">
+    <p>Banka © 2019 All Right Reserved <a href="#"> Terms of Use and Privacy Policy </a></p>
+</div>
+
+  <script type="text/javascript" src="../../js/main.js"></script>
+ 
 </body>
 
 </html>
