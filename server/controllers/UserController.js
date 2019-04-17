@@ -2,8 +2,9 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import validate from '../helpers/helper';
 import dbs from '../models/db';
+import dotenv from 'dotenv'
 
-const thesecret_code = 'BANKA_JWT_SECRET_CODE';
+dotenv.config();
 
 const userController = {
     signUp(req, res) {
@@ -25,7 +26,7 @@ const userController = {
             password: bcrypt.hashSync(req.body.password,10)
         };
         
-        const token = jwt.sign(user, `${thesecret_code}`, { expiresIn: '24h' });
+        const token = jwt.sign(user, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
         dbs.users.push(user);
 
         return res.header('Authorization', token).status(200).json({
@@ -57,7 +58,7 @@ const userController = {
         email: user.email,
     };
     // Generate new token
-    const token = jwt.sign(userDetails, `${thesecret_code}`, { expiresIn: '24h' });
+    const token = jwt.sign(userDetails, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
 
     return res.header('Authorization', token).status(200).json({
       status: 200,

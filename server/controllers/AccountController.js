@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import validate from '../helpers/accountHelper';
 import dbs from '../models/db';
 
-const thesecret_code = 'BANKA_JWT_SECRET_CODE';
 
 const accountController = {
     
