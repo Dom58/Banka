@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken';
 
-const thesecret_code = 'BANKA_JWT_SECRET_CODE';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const authenticated = (req, res, next) => {
   try {
@@ -8,7 +10,7 @@ const authenticated = (req, res, next) => {
     if (!header || header === '') return res.status(403).json({ status: 403, error: 'FORBIDDEN' });
     
 
-    const token = jwt.verify(header, `${thesecret_code}`);
+    const token = jwt.verify(header, `${process.env.SECRET_KEY}`, { expiresIn: '24h'});
     req.user = token;
     next();
   } catch {

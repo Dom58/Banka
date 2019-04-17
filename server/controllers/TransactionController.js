@@ -17,6 +17,7 @@ const transactionController = {
     },
 
     makeCreditTransaction(req, res) {
+      if(req.user.type ==='cashier'){
         const { error } = validate.validatetransaction(req.body);
         if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
 
@@ -45,9 +46,14 @@ const transactionController = {
            dbs.transactions.push(transaction);
             res.status(200).json({success:200, data: transaction});
         }
+      }
+      else{
+        res.status(401).json({status:401, message:'Ooops!! You are not allowed to do this activity!'});
+        }
     },
 
     makeDebitTransaction(req, res) {
+      if(req.user.type ==='cashier'){
         const { error } = validate.validatetransaction(req.body);
         if (error) return res.status(400).json({ status: 400, error: error.details[0].message });
 
@@ -79,6 +85,10 @@ const transactionController = {
   
            dbs.transactions.push(transaction);
             res.status(200).json({success:200, data: transaction});
+        }
+      }
+      else{
+        res.status(401).json({status:401, message:'Ooops!! You are not allowed to do this activity!'});
         }
     },
 
