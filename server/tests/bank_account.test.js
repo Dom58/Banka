@@ -14,6 +14,7 @@ const payLoad = {
   firstName: 'Ndahimana',
   lastName: 'Dominique',
   email: 'dom58@gmail.com',
+  isAdmin:"true",
 }
 
 const token = jwt.sign(payLoad, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
