@@ -23,6 +23,24 @@ describe('signup', () => {
         });
         
     });
+
+    it('Admin signup', () => {
+      chai.request(server)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstName: 'Ndahimana',
+          lastName: 'Dominique',
+          email: 'xavier58@gmail.com',
+          type: 'client',
+          isAdmin: 'true',
+          password: 'domdom',
+        })
+        .end((err, res) => {
+          console.log(res.body)
+          expect(res.body.status).to.equal(200);
+        });
+        
+    });
     
 
     it('Email already registed', () => {

@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import users from './routes/users';
 import accountRoute from './routes/accountRoute';
 import transactionRoute from './routes/transactionRoute';
+import staffRoute from './routes/staffRoute';
 
 import path from 'path';
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(users);
 app.use(accountRoute);
 app.use(transactionRoute);
+app.use(staffRoute);
 
 app.get('/', (req,res)=>{
 	res.send({ status:200, message:'Welcome to Banka application' });

@@ -107,10 +107,25 @@ const userController = {
             firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
+          },
         },
-      },
-    });
-      },
+      });
+    },
+
+    createStaff(req, res) {
+
+      if(req.user.isAdmin ==='true'){
+          const staff = dbs.users.find(username => username.id ===parseInt(req.params.id));
+          if (!staff) return res.status(404).json({ status: 404, error: `The User with id ## ${req.params.id} ## not found!` });
+           
+           staff.type = "cashier";
+
+            return res.status(200).json({ status: 200, message: 'Staff account is created!'});
+          }
+
+      else return res.status(401).json({status:401, message:'Ooops!! You are not allowed to make this request!'});
+      }
+
 }
 
 export default userController;
