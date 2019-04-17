@@ -2,12 +2,12 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../app.js'
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const { expect } = chai;
 chai.use(chaiHttp);
-
-
-const thesecret_code = 'BANKA_JWT_SECRET_CODE';
 
 const payLoad = {
   id:1,
@@ -16,7 +16,7 @@ const payLoad = {
   email: 'dom58@gmail.com',
 }
 
-const token = jwt.sign(payLoad, `${thesecret_code}`, { expiresIn: '24h' });
+const token = jwt.sign(payLoad, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
 
 before('sign up hook', () => {
   it.only('Banka users should signup', (done) => {
@@ -26,8 +26,7 @@ before('sign up hook', () => {
       firstName: 'Ndahimana',
       lastName: 'Dominique',
       email: 'dom58@gmail.com',
-      phoneNumber: '0788863488',
-      status: 'Cashier',
+      type: 'Cashier',
       isAdmin: 'false',
       password: 'domdom',
     })
@@ -59,6 +58,7 @@ describe('createAccount', () => {
         });
         done();
     });
+    
     it('should throw error if header token was not match', (done) => {
       chai.request(server)
         .post('/api/v1/accounts')

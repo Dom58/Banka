@@ -14,8 +14,7 @@ describe('signup', () => {
           firstName: 'Ndahimana',
           lastName: 'Dominique',
           email: 'dominique58@gmail.com',
-          phoneNumber: '0788863488',
-          status: 'cashier',
+          type: 'cashier',
           isAdmin: 'false',
           password: 'domdom',
         })
@@ -34,10 +33,7 @@ describe('signup', () => {
           .send({
             firstName: 'Ndahimana',
             lastName: 'Dominique',
-            email: 'dom58@gmail.com',
-            phoneNumber: '0788863488',
-            status: 'cashier',
-            isAdmin: 'false',
+            email: 'dominique58@gmail.com',
             password: 'domdom',
           })
           .end((err, res) => {
@@ -56,7 +52,6 @@ describe('signup', () => {
             firstName: '',
             lastName: '',
             email: '',
-            phoneNumber: '',
             status: '',
             isAdmin: '',
             password: '',
@@ -94,8 +89,8 @@ describe('signup', () => {
             chai.request(server)
               .post('/api/v1/auth/signin')
               .send({
-                email: 'domdom58@gmail.com',
-                password: 'qwert',
+                email: 'domxxxhs58@gmail.com',
+                password: 'domdom',
               })
               .end((err, res) => {
                 expect(res.body.status).to.equal(400);
@@ -110,7 +105,7 @@ describe('signup', () => {
             chai.request(server)
               .post('/api/v1/auth/signin')
               .send({
-                email: 'dom58@gmail.com',
+                email: 'dominique58@gmail.com',
                 password: 'asdfgh',
               })
               .end((err, res) => {
@@ -126,7 +121,7 @@ describe('signup', () => {
             chai.request(server)
               .post('/api/v1/auth/signin')
               .send({
-                email: 'dom58@gmail.com',
+                email: 'dominique58@gmail.com',
                 password: 'asdf',
               })
               .end((err, res) => {

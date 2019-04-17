@@ -16,27 +16,62 @@ const userController = {
         let checkUserEmail = dbs.users.find(username => username.email === req.body.email);
         if (checkUserEmail) return res.status(400).json({ status: 400, error: 'This email is already taken, please refill an other one' });
 
-        const user = {
-            id:dbs.users.length +1,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            status:req.body.status, 
-            isAdmin:req.body.isAdmin, 
-            password: bcrypt.hashSync(req.body.password,10)
-        };
-        
-        const token = jwt.sign(user, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
-        dbs.users.push(user);
+        if (req.body.isAdmin ==='true') {
+            const user = {
+                id:dbs.users.length +1,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                type:"", 
+                isAdmin:req.body.isAdmin,
+                password: bcrypt.hashSync(req.body.password,10)
+            };
+            const token = jwt.sign(user, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
+            dbs.users.push(user);
 
         return res.header('Authorization', token).status(200).json({
           status: 200,
           message: 'You are successfully registed, Please be free to use Banka',
           data: {
             token,
-            data: user,
+            data: {
+              id: user.id,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+            },
           },
         });
+        }
+
+        else{
+            const user = {
+                id:dbs.users.length +1,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                type:"", 
+                isAdmin:false,
+                password: bcrypt.hashSync(req.body.password,10)
+            };
+            const token = jwt.sign(user, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
+            dbs.users.push(user);
+
+        return res.header('Authorization', token).status(200).json({
+          status: 200,
+          message: 'You are successfully registed, Please be free to use Banka',
+          data: {
+            token,
+            data: {
+              id: user.id,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+            },
+          },
+        });
+
+        } 
       },
 
     signIn(req, res) {
@@ -55,6 +90,8 @@ const userController = {
         id:user.id,
         firstName: user.firstName,
         lastName: user.lastName,
+        type: user.type,
+        isAdmin: user.isAdmin,
         email: user.email,
     };
     // Generate new token
@@ -65,7 +102,12 @@ const userController = {
       message: 'You are logging in, Enjoy Banka services',
       data: {
         token,
-        data: userDetails,
+        data: {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+        },
       },
     });
       },
