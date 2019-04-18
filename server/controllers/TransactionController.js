@@ -30,7 +30,7 @@ const transactionController = {
                 createdOn:new Date(),
                 transactionType:"credit", 
                 accountNumber:req.params.accountNumber,
-                cashier:req.body.cashier,
+                cashier:req.user.id,
                 amount:parseFloat(req.body.amount),
                 accountBalance:foundAcc.balance + (parseFloat(req.body.amount)),
           };
@@ -70,7 +70,7 @@ const transactionController = {
                 createdOn:new Date(),
                 transactionType:"Debit", 
                 accountNumber:req.params.accountNumber,
-                cashier:req.body.cashier,
+                cashier:req.user.id,
                 amount:parseFloat(req.body.amount),
                 accountBalance:foundAcc.balance - (parseFloat(req.body.amount)),
           };

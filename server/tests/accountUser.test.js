@@ -2,6 +2,11 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../app.js'
 
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
+
+dotenv.config();
+
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -16,6 +21,40 @@ describe('signup', () => {
           email: 'dominique58@gmail.com',
           type: 'cashier',
           isAdmin: 'false',
+          password: 'domdom',
+        })
+        .end((err, res) => {
+          expect(res.body.status).to.equal(200);
+        });
+        
+    });
+
+    it('Auto Signup as a user', () => {
+      chai.request(server)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstName: 'Ndahimana',
+          lastName: 'Dominique',
+          email: 'xavier58@gmail.com',
+          type: 'client',
+          isAdmin: 'true',
+          password: 'domdom',
+        })
+        .end((err, res) => {
+          expect(res.body.status).to.equal(200);
+        });
+        
+    });
+
+    it('Admin Account', () => {
+      chai.request(server)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstName: 'Ndahimana',
+          lastName: 'Dominique',
+          email: 'xavier5858@gmail.com',
+          isAdmin:'false',
+          type: '----',
           password: 'domdom',
         })
         .end((err, res) => {
@@ -64,7 +103,6 @@ describe('signup', () => {
           });
           
       });
-
     });
 
 
@@ -151,6 +189,46 @@ describe('signup', () => {
               });
               
           });
+
+    });
+
+    describe('Create Staff', () => {
+
+      const payLoad = {
+          id:1,
+          firstName: 'Ndahimana',
+          lastName: 'Dominique',
+          email: 'dom58@gmail.com',
+          isAdmin:"true",
+          }
+  const token = jwt.sign(payLoad, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
+        
+      it('Admin can create a staff', () => {
+        chai.request(server)
+          .patch('/api/v1/staff/5')
+          .set('Authorization', token)
+          .send({
+            type: 'cashier',
+          })
+          .end((err, res) => {
+            expect(res.body.status).to.equal(200);
+          });
+          
+      });
+
+      it('Unauthorized', () => {
+        chai.request(server)
+          .patch('/api/v1/staff/5')
+          .set('Authorization', !token)
+          .send({
+            type: 'cashier',
+          })
+          .end((err, res) => {
+            expect(res.body).to.have.property('status');
+            expect(res.body).to.have.property('error');
+          });
+          
+      });
 
     });
       
