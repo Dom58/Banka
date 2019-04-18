@@ -123,7 +123,7 @@ const userController = {
             return res.status(200).json({ status: 200, message: 'Staff account is created!'});
           }
 
-      else return res.status(401).json({status:401, message:'Ooops!! You are not allowed to make this request!'});
+      else return res.status(401).json({status:401, error:'Ooops!! You are not allowed to make this request!'});
       }
 
 }

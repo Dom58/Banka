@@ -59,7 +59,7 @@ const accountController = {
         
     //delete an account
     deleteAccount(req, res){
-        if(req.user.isAdmin ==='true' || req.user.type ==='Cashier'){
+        if(req.user.isAdmin ==='true' || req.user.type ==='cashier'){
 
         const account = dbs.accounts.find(findAccount => findAccount.accountNumber === parseInt(req.params.accountNumber));
          if (!account) return res.status(404).json({status:404, error:`This account number ## ${req.params.accountNumber} ## was not found !`});
@@ -71,7 +71,7 @@ const accountController = {
         res.status(200).json({ status:200, message: "Account successfully deleted" });
         }
         else{
-            res.status(401).json({status:401, message:'Ooops!! You are not allowed to do this activity!'});
+            res.status(401).json({status:401, error:'Ooops!! You are not allowed to do this activity!'});
         }
         },
 }

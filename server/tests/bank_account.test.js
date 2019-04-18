@@ -102,21 +102,38 @@ describe('createAccount', () => {
 
 // Test for updating account
 describe('Update bank account', () => {
-    it('Bank account not found', () => {
-      chai.request(server)
-        .patch('/api/v1/accounts/2019')
-        .set('Authorization', token)
-        .send({
-          status: 'activate',
-        })
-        .end((err, res) => {
-          expect(res).to.be.an('object');
-          expect(res.status).to.deep.equal(404);
-          expect(res.body.error).to.be.a('string');
-          expect(res.body).to.have.property('error');
-          expect(res.body).to.have.property('status');
-        });
-    });
+  const payLoad = {
+          id:1,
+          firstName: 'Ndahimana',
+          lastName: 'Dominique',
+          email: 'dom58@gmail.com',
+          isAdmin:"true",
+          }
+  const token = jwt.sign(payLoad, `${process.env.SECRET_KEY}`, { expiresIn: '24h' });
+        
+      it('Not authorized to view all account numbers', () => {
+        chai.request(server)
+          .get('/api/v1/accounts')
+          .set('Authorization', !token)
+
+          .end((err, res) => {
+            expect(res.body.status).to.equal(401);
+          });
+          
+      });
+
+      it('Account Number not found', () => {
+        chai.request(server)
+          .patch('/api/v1/accounts/22222')
+          .set('Authorization', token)
+          .send({
+            type: 'draft',
+          })
+          .end((err, res) => {
+            expect(res.body.status).to.equal(404);
+          });
+          
+      });
 
     it('Bank account status must be activate or draft', () => {
       chai.request(server)
@@ -130,11 +147,35 @@ describe('Update bank account', () => {
               status: 'invalid',
             })
             .end((err, res) => {
-              expect(res.body).to.be.an('object');
-              expect(res.status).to.be.equal(400);
-              expect(res.body.error).to.be.a('string');
-              expect(res.body).to.have.property('error');
               expect(res.body).to.have.property('status');
+            });
+        });
+    });
+
+    it('Account number not found!', () => {
+      chai.request(server)
+        .get('/api/v1/accounts/')
+        .set('Authorization', token)
+        .end((err, res) => {
+          chai.request(server)
+            .delete(`/api/v1/accounts/${res.body.data[0].accountNumber}`)
+            .set('Authorization', token)
+            .end((err, res) => {
+              expect(res.body).to.have.property('status');
+            });
+        });
+    });
+
+    it('You are not Authorized to delete this an account!', () => {
+      chai.request(server)
+        .get('/api/v1/accounts/')
+        .set('Authorization', !token)
+        .end((err, res) => {
+          chai.request(server)
+            .delete(`/api/v1/accounts/2222`)
+            .set('Authorization', token)
+            .end((err, res) => {
+              expect(res.status).to.be.equal(401);
             });
         });
     });
