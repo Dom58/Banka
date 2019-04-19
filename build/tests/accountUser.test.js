@@ -6,7 +6,13 @@ var _chaiHttp = _interopRequireDefault(require("chai-http"));
 
 var _app = _interopRequireDefault(require("../app.js"));
 
+var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
+
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+_dotenv["default"].config();
 
 var expect = _chai["default"].expect;
 
@@ -18,23 +24,43 @@ describe('signup', function () {
       firstName: 'Ndahimana',
       lastName: 'Dominique',
       email: 'dominique58@gmail.com',
-      phoneNumber: '0788863488',
-      status: 'Cashier',
+      type: 'cashier',
       isAdmin: 'false',
       password: 'domdom'
     }).end(function (err, res) {
-      expect(res.body.status).to.equal(200); // expect(res.body).to.have.property('status');
-      // expect(res.body).to.have.property('message');
-      // expect(res.body).to.have.property('data');
-      // expect(res.body).to.be.an('object');
+      expect(res.body.status).to.equal(200);
     });
   });
-  it('If email already taken', function () {
+  it('Auto Signup as a user', function () {
+    _chai["default"].request(_app["default"]).post('/api/v1/auth/signup').send({
+      firstName: 'Ndahimana',
+      lastName: 'Dominique',
+      email: 'xavier58@gmail.com',
+      type: 'client',
+      isAdmin: 'true',
+      password: 'domdom'
+    }).end(function (err, res) {
+      expect(res.body.status).to.equal(200);
+    });
+  });
+  it('Admin Account', function () {
+    _chai["default"].request(_app["default"]).post('/api/v1/auth/signup').send({
+      firstName: 'Ndahimana',
+      lastName: 'Dominique',
+      email: 'xavier5858@gmail.com',
+      isAdmin: 'false',
+      type: '----',
+      password: 'domdom'
+    }).end(function (err, res) {
+      expect(res.body.status).to.equal(200);
+    });
+  });
+  it('Email already registed', function () {
     _chai["default"].request(_app["default"]).post('/api/v1/auth/signup').set('Content-type', 'application/json').set('Accept', 'application/json').send({
-      firstName: 'andrew',
-      lastName: 'jackson',
-      email: 'dom58@gmail.com',
-      password: 'asdfgh'
+      firstName: 'Ndahimana',
+      lastName: 'Dominique',
+      email: 'dominique58@gmail.com',
+      password: 'domdom'
     }).end(function (err, res) {
       expect(res.body.status).to.equal(400);
       expect(res.body).to.have.property('status');
@@ -47,7 +73,6 @@ describe('signup', function () {
       firstName: '',
       lastName: '',
       email: '',
-      phoneNumber: '',
       status: '',
       isAdmin: '',
       password: ''
@@ -73,8 +98,8 @@ describe('signIn', function () {
   });
   it('Invalid email', function () {
     _chai["default"].request(_app["default"]).post('/api/v1/auth/signin').send({
-      email: 'domdom58@gmail.com',
-      password: 'qwert'
+      email: 'domxxxhs58@gmail.com',
+      password: 'domdom'
     }).end(function (err, res) {
       expect(res.body.status).to.equal(400);
       expect(res.body).to.have.property('status');
@@ -84,7 +109,7 @@ describe('signIn', function () {
   });
   it('Incorrect Password', function () {
     _chai["default"].request(_app["default"]).post('/api/v1/auth/signin').send({
-      email: 'dom58@gmail.com',
+      email: 'dominique58@gmail.com',
       password: 'asdfgh'
     }).end(function (err, res) {
       expect(res.body.status).to.equal(400);
@@ -95,7 +120,7 @@ describe('signIn', function () {
   });
   it('Password length must be equal to six', function () {
     _chai["default"].request(_app["default"]).post('/api/v1/auth/signin').send({
-      email: 'dom58@gmail.com',
+      email: 'dominique58@gmail.com',
       password: 'asdf'
     }).end(function (err, res) {
       expect(res.body.status).to.equal(400);
@@ -117,6 +142,35 @@ describe('signIn', function () {
       expect(res.body).to.have.property('message');
       expect(res.body).to.have.property('data');
       expect(res.body).to.be.an('object');
+    });
+  });
+});
+describe('Create Staff', function () {
+  var payLoad = {
+    id: 1,
+    firstName: 'Ndahimana',
+    lastName: 'Dominique',
+    email: 'dom58@gmail.com',
+    isAdmin: "true"
+  };
+
+  var token = _jsonwebtoken["default"].sign(payLoad, "".concat(process.env.SECRET_KEY), {
+    expiresIn: '24h'
+  });
+
+  it('Admin can create a staff', function () {
+    _chai["default"].request(_app["default"]).patch('/api/v1/staff/5').set('Authorization', token).send({
+      type: 'cashier'
+    }).end(function (err, res) {
+      expect(res.body.status).to.equal(200);
+    });
+  });
+  it('Unauthorized', function () {
+    _chai["default"].request(_app["default"]).patch('/api/v1/staff/5').set('Authorization', !token).send({
+      type: 'cashier'
+    }).end(function (err, res) {
+      expect(res.body).to.have.property('status');
+      expect(res.body).to.have.property('error');
     });
   });
 });

@@ -13,24 +13,28 @@ var _db = _interopRequireDefault(require("../models/db"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var thesecret_code = 'BANKA_JWT_SECRET_CODE';
 var accountController = {
   allAccounts: function allAccounts(req, res) {
-    if (!_db["default"].accounts.length) return res.status(404).json({
-      status: 404,
-      message: 'No account created!'
-    });
-    return res.status(200).json({
-      status: 200,
-      data: _db["default"].accounts
-    });
+    if (req.user.isAdmin === 'true' || req.user.type === 'cashier') {
+      if (!_db["default"].accounts.length) return res.status(404).json({
+        status: 404,
+        message: 'No account created!'
+      });
+      return res.status(200).json({
+        status: 200,
+        data: _db["default"].accounts
+      });
+    } else {
+      res.status(401).json({
+        status: 401,
+        message: 'Ooops!! You are not allowed to do this activity!'
+      });
+    }
   },
   createAccount: function createAccount(req, res) {
-    // const token = jwt.sign(req.user, `${thesecret_code}`);
     function randomInt() {
       return Math.floor(Math.random() * (9999999999 - 1000000000) + 1000000000);
-    } //   const randomNmber = Math.floor(Math.random() * 10;
-
+    }
 
     var balance = 0;
 
@@ -64,41 +68,55 @@ var accountController = {
   },
   // activate or draft a user bank account
   activateAccount: function activateAccount(req, res) {
-    var account = _db["default"].accounts.find(function (findAccount) {
-      return findAccount.accountNumber === parseInt(req.params.accountNumber);
-    });
+    if (req.user.isAdmin === 'true' || req.user.type === 'cashier') {
+      var account = _db["default"].accounts.find(function (findAccount) {
+        return findAccount.accountNumber === parseInt(req.params.accountNumber);
+      });
 
-    if (!account) return res.status(400).json({
-      status: 400,
-      error: "This account number ## ".concat(req.params.accountNumber, " ## was not found !")
-    });
-    account.status = req.body.status;
-    return res.status(200).json({
-      status: 200,
-      message: 'Account Updated',
-      data: account
-    });
+      if (!account) return res.status(404).json({
+        status: 404,
+        error: "This account number ## ".concat(req.params.accountNumber, " ## was not found !")
+      });
+      account.status = req.body.status;
+      return res.status(200).json({
+        status: 200,
+        message: 'Account Updated',
+        data: account
+      });
+    } else {
+      res.status(401).json({
+        status: 401,
+        message: 'Ooops!! You are not allowed to do this activity!'
+      });
+    }
   },
   //delete an account
   deleteAccount: function deleteAccount(req, res) {
-    var account = _db["default"].accounts.find(function (findAccount) {
-      return findAccount.accountNumber === parseInt(req.params.accountNumber);
-    });
+    if (req.user.isAdmin === 'true' || req.user.type === 'cashier') {
+      var account = _db["default"].accounts.find(function (findAccount) {
+        return findAccount.accountNumber === parseInt(req.params.accountNumber);
+      });
 
-    if (!account) return res.status(400).json({
-      status: 400,
-      error: "This account number ## ".concat(req.params.accountNumber, " ## was not found !")
-    }); //find index of account
+      if (!account) return res.status(404).json({
+        status: 404,
+        error: "This account number ## ".concat(req.params.accountNumber, " ## was not found !")
+      }); //find index of account
 
-    var index = _db["default"].accounts.indexOf(account); //remove account
+      var index = _db["default"].accounts.indexOf(account); //remove account
 
 
-    _db["default"].accounts.splice(index, 1);
+      _db["default"].accounts.splice(index, 1);
 
-    res.status(200).json({
-      status: 200,
-      message: "Account successfully deleted"
-    });
+      res.status(200).json({
+        status: 200,
+        message: "Account successfully deleted"
+      });
+    } else {
+      res.status(401).json({
+        status: 401,
+        error: 'Ooops!! You are not allowed to do this activity!'
+      });
+    }
   }
 };
 var _default = accountController;

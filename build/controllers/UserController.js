@@ -13,9 +13,12 @@ var _helper = _interopRequireDefault(require("../helpers/helper"));
 
 var _db = _interopRequireDefault(require("../models/db"));
 
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var thesecret_code = 'BANKA_JWT_SECRET_CODE';
+_dotenv["default"].config();
+
 var userController = {
   signUp: function signUp(req, res) {
     // user inputs validation
@@ -35,30 +38,68 @@ var userController = {
       status: 400,
       error: 'This email is already taken, please refill an other one'
     });
-    var user = {
-      id: _db["default"].users.length + 1,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      status: req.body.status,
-      isAdmin: req.body.isAdmin,
-      password: _bcrypt["default"].hashSync(req.body.password, 10)
-    };
 
-    var token = _jsonwebtoken["default"].sign(user, "".concat(thesecret_code), {
-      expiresIn: '24h'
-    });
+    if (req.body.isAdmin === 'true') {
+      var user = {
+        id: _db["default"].users.length + 1,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        type: "",
+        isAdmin: req.body.isAdmin,
+        password: _bcrypt["default"].hashSync(req.body.password, 10)
+      };
 
-    _db["default"].users.push(user);
+      var token = _jsonwebtoken["default"].sign(user, "".concat(process.env.SECRET_KEY), {
+        expiresIn: '24h'
+      });
 
-    return res.header('Authorization', token).status(200).json({
-      status: 200,
-      message: 'You are successfully registed, Please be free to use Banka',
-      data: {
-        token: token,
-        data: user
-      }
-    });
+      _db["default"].users.push(user);
+
+      return res.header('Authorization', token).status(200).json({
+        status: 200,
+        message: 'You are successfully registed, Please be free to use Banka',
+        data: {
+          token: token,
+          data: {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email
+          }
+        }
+      });
+    } else {
+      var _user = {
+        id: _db["default"].users.length + 1,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        type: "",
+        isAdmin: false,
+        password: _bcrypt["default"].hashSync(req.body.password, 10)
+      };
+
+      var _token = _jsonwebtoken["default"].sign(_user, "".concat(process.env.SECRET_KEY), {
+        expiresIn: '24h'
+      });
+
+      _db["default"].users.push(_user);
+
+      return res.header('Authorization', _token).status(200).json({
+        status: 200,
+        message: 'You are successfully registed, Please be free to use Banka',
+        data: {
+          token: _token,
+          data: {
+            id: _user.id,
+            firstName: _user.firstName,
+            lastName: _user.lastName,
+            email: _user.email
+          }
+        }
+      });
+    }
   },
   signIn: function signIn(req, res) {
     var _validate$validateLog = _helper["default"].validateLogin(req.body),
@@ -88,10 +129,12 @@ var userController = {
       id: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
+      type: user.type,
+      isAdmin: user.isAdmin,
       email: user.email
     }; // Generate new token
 
-    var token = _jsonwebtoken["default"].sign(userDetails, "".concat(thesecret_code), {
+    var token = _jsonwebtoken["default"].sign(userDetails, "".concat(process.env.SECRET_KEY), {
       expiresIn: '24h'
     });
 
@@ -100,8 +143,33 @@ var userController = {
       message: 'You are logging in, Enjoy Banka services',
       data: {
         token: token,
-        data: userDetails
+        data: {
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email
+        }
       }
+    });
+  },
+  createStaff: function createStaff(req, res) {
+    if (req.user.isAdmin === 'true') {
+      var staff = _db["default"].users.find(function (username) {
+        return username.id === parseInt(req.params.id);
+      });
+
+      if (!staff) return res.status(404).json({
+        status: 404,
+        error: "The User with id ## ".concat(req.params.id, " ## not found!")
+      });
+      staff.type = "cashier";
+      return res.status(200).json({
+        status: 200,
+        message: 'Staff account is created!'
+      });
+    } else return res.status(401).json({
+      status: 401,
+      error: 'Ooops!! You are not allowed to make this request!'
     });
   }
 };

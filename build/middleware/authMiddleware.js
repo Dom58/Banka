@@ -7,9 +7,11 @@ exports["default"] = void 0;
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var thesecret_code = 'BANKA_JWT_SECRET_CODE';
+_dotenv["default"].config();
 
 var authenticated = function authenticated(req, res, next) {
   try {
@@ -19,7 +21,9 @@ var authenticated = function authenticated(req, res, next) {
       error: 'FORBIDDEN'
     });
 
-    var token = _jsonwebtoken["default"].verify(header, "".concat(thesecret_code));
+    var token = _jsonwebtoken["default"].verify(header, "".concat(process.env.SECRET_KEY), {
+      expiresIn: '24h'
+    });
 
     req.user = token;
     next();
