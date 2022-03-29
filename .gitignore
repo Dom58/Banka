@@ -5,3 +5,6 @@ node_modules
 .env
 package-lock.json
 .DS_store
+/build
+build/*
+build
